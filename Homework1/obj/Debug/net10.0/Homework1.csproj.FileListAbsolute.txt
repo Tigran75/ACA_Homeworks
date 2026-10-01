@@ -1,0 +1,15 @@
+D:\Tigran\Programming\C#\ACA_Homeworks\Homework1\bin\Debug\net10.0\Homework1.exe
+D:\Tigran\Programming\C#\ACA_Homeworks\Homework1\bin\Debug\net10.0\Homework1.deps.json
+D:\Tigran\Programming\C#\ACA_Homeworks\Homework1\bin\Debug\net10.0\Homework1.runtimeconfig.json
+D:\Tigran\Programming\C#\ACA_Homeworks\Homework1\bin\Debug\net10.0\Homework1.dll
+D:\Tigran\Programming\C#\ACA_Homeworks\Homework1\bin\Debug\net10.0\Homework1.pdb
+D:\Tigran\Programming\C#\ACA_Homeworks\Homework1\obj\Debug\net10.0\Homework1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Tigran\Programming\C#\ACA_Homeworks\Homework1\obj\Debug\net10.0\Homework1.AssemblyInfoInputs.cache
+D:\Tigran\Programming\C#\ACA_Homeworks\Homework1\obj\Debug\net10.0\Homework1.AssemblyInfo.cs
+D:\Tigran\Programming\C#\ACA_Homeworks\Homework1\obj\Debug\net10.0\Homework1.csproj.CoreCompileInputs.cache
+D:\Tigran\Programming\C#\ACA_Homeworks\Homework1\obj\Debug\net10.0\Homework1.sourcelink.json
+D:\Tigran\Programming\C#\ACA_Homeworks\Homework1\obj\Debug\net10.0\Homework1.dll
+D:\Tigran\Programming\C#\ACA_Homeworks\Homework1\obj\Debug\net10.0\refint\Homework1.dll
+D:\Tigran\Programming\C#\ACA_Homeworks\Homework1\obj\Debug\net10.0\Homework1.pdb
+D:\Tigran\Programming\C#\ACA_Homeworks\Homework1\obj\Debug\net10.0\Homework1.genruntimeconfig.cache
+D:\Tigran\Programming\C#\ACA_Homeworks\Homework1\obj\Debug\net10.0\ref\Homework1.dll
