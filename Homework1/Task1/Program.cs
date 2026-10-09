@@ -3,15 +3,12 @@
 class Program
 {
     static void Main(string[] args) {
-        
         Console.Write("Enter the number of rows in the matrix: ");
         int.TryParse(Console.ReadLine(), out int n); 
-        
         Console.Write("Enter the number of columns in the matrix: ");
         int.TryParse(Console.ReadLine(), out int m);
         
         int[,] matrix = new int[n, m];
-        
         Console.WriteLine("Enter the elements of the matrix: ");
         for (int i = 0; i < n; i++) {
             string[] row = Console.ReadLine()!.Split();
@@ -23,7 +20,6 @@ class Program
         int.TryParse(Console.ReadLine(), out int limit);
         
         int[] arrAbove = Above(matrix, limit);
-        
         Console.Write($"Here are the elements of the matrix greater than the limit: ");
         for(int i = 0; i < arrAbove.Length; i++)
             Console.Write(arrAbove[i] + " ");

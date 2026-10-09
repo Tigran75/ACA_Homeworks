@@ -3,7 +3,6 @@
 class Program
 {
     static void Main(string[] args) {
-
         Attempt[][] jagged = {
             new Attempt[] { new Attempt(40, 1), new Attempt(20, 2),
                 new Attempt(90, 3)},
@@ -18,8 +17,7 @@ class Program
         for(int i = 0; i < jaggedBest.Length; i++)
             Console.Write($"(Score: {jaggedBest[i].Score}, Day: {jaggedBest[i].Day}) ");
     }
- 
-
+    
     static Attempt[] BestAttempt(Attempt[][] jagged) {
         Attempt[] result = new Attempt[jagged.Length];
         
