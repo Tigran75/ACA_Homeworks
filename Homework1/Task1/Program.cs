@@ -3,6 +3,7 @@
 class Program
 {
     static void Main(string[] args) {
+        
         Console.Write("Enter the number of rows in the matrix: ");
         int.TryParse(Console.ReadLine(), out int n); 
         
@@ -21,11 +22,14 @@ class Program
         Console.Write("Enter the limit: ");
         int.TryParse(Console.ReadLine(), out int limit);
         
-        Above(matrix, limit);
+        int[] arrAbove = Above(matrix, limit);
+        
+        Console.Write($"Here are the elements of the matrix greater than the limit: ");
+        for(int i = 0; i < arrAbove.Length; i++)
+            Console.Write(arrAbove[i] + " ");
     }
 
-    static void Above(int[,] matrix, int limit) {
-        
+    static int[] Above(int[,] matrix, int limit) {
         int[] result = new int[matrix.Length];
         int index = 0;
         
@@ -38,9 +42,7 @@ class Program
             }
         }
         
-        Console.Write("Here are the elements of the matrix greater than the limit: ");
-        for (int i = 0; i < index; i++)
-            Console.Write(result[i] + " ");
+        Array.Resize(ref result, index);
+        return result;
     }
-    
 }
