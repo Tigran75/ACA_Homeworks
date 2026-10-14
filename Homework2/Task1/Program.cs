@@ -17,42 +17,12 @@ class Program {
         }
     }
 
-    static bool TryReadPlayer(out Cell player1, out Cell player2) {
-        player1 = Cell.Empty;
-        player2 = Cell.Empty;
-        Console.Write("Which one are you? (X or O | 1 or 2): ");
-        string input = Console.ReadLine()!;
-        if (int.TryParse(input, out int number)) {
-            if (number == 1 || number == 2)
-                player1 = (Cell)number;
-            else {
-                Console.WriteLine("Wrong input");
-                return false;
-            }
-        }
-        else {
-            if (input.ToLower() == "x")
-                player1 = Cell.X;
-            else if (input.ToLower() == "o")
-                player1 = Cell.O;
-            else {
-                Console.WriteLine("Wrong input");
-                return false;
-            }
-        }
-        if (player1 == Cell.X)
-            player2 = Cell.O;
-        else
-            player2 = Cell.X;
-        return true;
-    }
-
     static Move ReadMove(Cell[,] board,Cell currentPlayer) {
         while (true) {
             Console.WriteLine($"{currentPlayer}'s turn: ");
             int row = ReadNumber("Row");
             int col = ReadNumber("Column");
-            if (row > 0 && row <= 3 && col > 0 && col <= 3 && board[row - 1, col - 1] == Cell.Empty)
+            if (board[row - 1, col - 1] == Cell.Empty)
                 return new Move(row - 1, col - 1);
             Console.WriteLine();
             PrintBoard(board);
@@ -66,9 +36,13 @@ class Program {
             Console.Write($"{name}: ");
             string line = Console.ReadLine();
             int number;
-            if (line != null && int.TryParse(line, out number))
-                return number;
-            Console.WriteLine("Enter a whole number");
+            if (line != null && int.TryParse(line, out number)) {
+                if(number > 0 && number <= 3)
+                    return number;
+                Console.WriteLine("Enter a number between 1 and 3");
+            }
+            else
+                Console.WriteLine("Enter a whole number");
         }
     }
 
@@ -105,6 +79,14 @@ class Program {
         }
         Console.WriteLine();
     }
+    
+    static char Mark(Cell cell) {
+        if (cell == Cell.X)
+            return 'X';
+        if (cell == Cell.O)
+            return 'O';
+        return '.';
+    }
 
     static bool IsBoardFull(Cell[,] board) {
         for (int i = 0; i < 3; i++) {
@@ -117,21 +99,11 @@ class Program {
         return true;
     }
 
-    static char Mark(Cell cell) {
-        if (cell == Cell.X)
-            return 'X';
-        if (cell == Cell.O)
-            return 'O';
-        return '.';
-    }
+    static void Game(Cell[,] board) {
+        Console.WriteLine("Welcome to TicTacToe!\n");
+            
+        Cell currentPlayer = Cell.X;
 
-    static void Game(Cell[,] board, Cell player1, Cell player2) {
-        Cell currentPlayer;
-        if (player1 == Cell.X)
-            currentPlayer = player1;
-        else
-            currentPlayer = player2;
-        Console.WriteLine();
         while (true) {
             PrintBoard(board);
             Move move = ReadMove(board, currentPlayer);
@@ -150,20 +122,17 @@ class Program {
                 break;
             }
 
-            if (currentPlayer == player1)
-                currentPlayer = player2;
+            if (currentPlayer == Cell.X)
+                currentPlayer = Cell.O;
             else
-                currentPlayer = player1;
+                currentPlayer = Cell.X;
         }
-
     }
 
     static void Main(string[] args) {
 
         Cell[,] board = new Cell[3, 3];
-        Console.WriteLine("Welcome to TicTacToe!");
-        TryReadPlayer(out Cell player1, out Cell player2);
-        Game(board, player1, player2);
+        Game(board);
         
     }
 }
