@@ -20,29 +20,36 @@ class Program {
     static Move ReadMove(Cell[,] board,Cell currentPlayer) {
         while (true) {
             Console.WriteLine($"{currentPlayer}'s turn: ");
-            int row = ReadNumber("Row");
-            int col = ReadNumber("Column");
+            int row = ReadNumber("Row", board);
+            int col = ReadNumber("Column", board);
             if (board[row - 1, col - 1] == Cell.Empty)
                 return new Move(row - 1, col - 1);
             Console.WriteLine();
+            Console.Clear();
             PrintBoard(board);
             Console.WriteLine("Pick an empty cell");
             
         }
     }
 
-    static int ReadNumber(string name) {
+    static int ReadNumber(string name, Cell[,] board) {
         while (true) {
+            
             Console.Write($"{name}: ");
             string line = Console.ReadLine();
             int number;
             if (line != null && int.TryParse(line, out number)) {
                 if(number > 0 && number <= 3)
                     return number;
+                Console.Clear();
+                PrintBoard(board);
                 Console.WriteLine("Enter a number between 1 and 3");
             }
-            else
+            else {
+                Console.Clear();
+                PrintBoard(board);
                 Console.WriteLine("Enter a whole number");
+            }
         }
     }
 
@@ -107,16 +114,18 @@ class Program {
         while (true) {
             PrintBoard(board);
             Move move = ReadMove(board, currentPlayer);
-            Console.WriteLine();
             board[move.Row, move.Col] = currentPlayer;
+            Cell winner = Winner(board);
             
-            if(Winner(board) != Cell.Empty){
+            if(winner != Cell.Empty){
+                Console.Clear();
                 PrintBoard(board);
-                Console.WriteLine($"Winner: {Winner(board)}!");
+                Console.WriteLine($"Winner: {winner}!");
                 break;
             }
 
             if (IsBoardFull(board)) {
+                Console.Clear();
                 PrintBoard(board);
                 Console.WriteLine($"It's a draw!");
                 break;
@@ -126,6 +135,7 @@ class Program {
                 currentPlayer = Cell.O;
             else
                 currentPlayer = Cell.X;
+            Console.Clear();
         }
     }
 
