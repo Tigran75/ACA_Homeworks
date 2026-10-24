@@ -17,9 +17,10 @@ public class IntQueue {
     public void Dequeue() {
         if(Count == 0)
             return;
+        int[] newArr = new int[Count - 1];
         for (int i = 0; i < Count - 1; i++) 
-            arr[i] = arr[i + 1];
-        arr[Count - 1] = 0;
+            newArr[i] = arr[i + 1];
+        arr = newArr;
         Count--;
     }
 }
