@@ -10,10 +10,11 @@ class Program {
          queue.Enqueue(4);
          queue.Enqueue(5);
         
-         queue.Dequeue();
-         queue.Dequeue();
-         queue.Dequeue();
-         queue.Dequeue();
-         queue.Dequeue();
+         Console.WriteLine(queue.Dequeue());
+         Console.WriteLine(queue.Dequeue());
+         Console.WriteLine(queue.Dequeue());
+         Console.WriteLine(queue.Dequeue());
+         Console.WriteLine(queue.Dequeue());
+   
     }
 }

@@ -15,19 +15,17 @@ public class IntStack {
         Count++;
     }
 
-    public void Pop() {
+    public int? Pop() {
         if(Count == 0)
-            return;
-        int[] newArr = new int[Count - 1];
-        for(int i = 0; i < Count - 1; i++)
-            newArr[i] = arr[i];
-        arr = newArr;
+            return null;
+        int val = arr[Count - 1];
         Count--;
+        return val;
     }
 
-    public void Peek() {
+    public int? Peek() {
         if (Count == 0)
-            return;
-        Console.WriteLine(arr[Count - 1]);
+            return null;
+        return arr[Count - 1];
     }
 }

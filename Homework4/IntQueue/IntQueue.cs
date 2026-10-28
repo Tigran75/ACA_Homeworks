@@ -14,13 +14,13 @@ public class IntQueue {
         Count++;
     }
 
-    public void Dequeue() {
+    public int? Dequeue() {
         if(Count == 0)
-            return;
-        int[] newArr = new int[Count - 1];
-        for (int i = 0; i < Count - 1; i++) 
-            newArr[i] = arr[i + 1];
-        arr = newArr;
+            return null;
+        int val = arr[0];
+        for(int i = 0; i < Count - 1; i++)
+            arr[i] = arr[i + 1];
         Count--;
+        return val;
     }
 }

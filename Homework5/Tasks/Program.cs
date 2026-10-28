@@ -17,11 +17,10 @@ class Program {
 
     static int Pick(int num) {
         Op op;
-        if (num % 2 == 0) {
+        if (num % 2 == 0)
             op = Double;
-            return op(num);
-        }
-        op = PlusTen;
+        else
+           op = PlusTen; 
         return op(num);
     }
     
